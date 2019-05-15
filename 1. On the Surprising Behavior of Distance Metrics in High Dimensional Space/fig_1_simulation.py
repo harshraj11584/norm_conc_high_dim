@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 k_values = np.array([3.0, 2.0, 1.0, 2.0/3.0, 2.0/5.0])
 
 #Number of Datapoints
-N=1000
+N=10000
 
 #Max number of dimensions to try
 D=200
