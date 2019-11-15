@@ -24,9 +24,9 @@ for dim in dimensions:
 
 
 	dist_vals = np.linspace( 0, np.max( (np.max(actual_distances)+5, 15) ) , 100)
-	kernel_vals = gaussian_kernel(dist_vals,sigma) 
-	kernel_vals1 = gaussian_kernel(dist_vals,sigma1) 
-	kernel_vals2 = gaussian_kernel(dist_vals,sigma2) 
+	kernel_vals = p_gaussian_kernel(dist_vals,p,sigma) 
+	kernel_vals1 = p_gaussian_kernel(dist_vals,p,sigma1) 
+	kernel_vals2 = p_gaussian_kernel(dist_vals,p,sigma2) 
 
 
 	fig,ax=plt.subplots()
@@ -36,9 +36,9 @@ for dim in dimensions:
 	ax.hist(actual_distances,bins=200,density=True,label="Distribution of Distances") 
 	ax.axvline(d_5,ls='--')
 	ax.axvline(d_95,ls='--')
-	ax.set_title("Dimension="+str(dim))
+	ax.set_title("p-Gaussian (Dimension="+str(dim)+")")
 	ax.legend() 
-	fig.savefig('../Graphs/g3_problem_with_Gaussian_dim='+str(dim)+'.png')
+	fig.savefig('../Graphs/g4_improvement_with_p_Gaussian_dim='+str(dim)+'.png')
 
 # plt.show()
 
