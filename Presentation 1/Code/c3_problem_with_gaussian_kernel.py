@@ -33,6 +33,8 @@ for dim in dimensions:
 	ax.plot(dist_vals,kernel_vals,label="Kernel Values (sigma="+str(sigma)[:4]+")") 
 	ax.plot(dist_vals,kernel_vals2,label="Kernel Values (sigma="+str(sigma2)[:4]+")") 
 	ax.hist(actual_distances,bins=200,density=True,label="Distribution of Distances") 
+	ax.axvline(d_5,ls='--')
+	ax.axvline(d_95,ls='--')
 	ax.set_title("Dimension="+str(dim))
 	ax.legend() 
 	fig.savefig('../Graphs/g3_problem_with_Gaussian_dim='+str(dim)+'.png')
