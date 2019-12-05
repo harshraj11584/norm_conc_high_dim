@@ -30,13 +30,15 @@ for dim in dimensions:
 
 
 	fig,ax=plt.subplots()
-	ax.plot(dist_vals,kernel_vals1,label="Kernel Values (sigma="+str(sigma1)[:4]+")") 
-	ax.plot(dist_vals,kernel_vals,label="Kernel Values (sigma="+str(sigma)[:4]+")") 
-	ax.plot(dist_vals,kernel_vals2,label="Kernel Values (sigma="+str(sigma2)[:4]+")") 
+	ax.plot(dist_vals,kernel_vals1,label="Kernel Values ($\sigma$="+str(sigma1)[:4]+")") 
+	ax.plot(dist_vals,kernel_vals,label="Kernel Values ($\sigma$="+str(sigma)[:4]+")") 
+	ax.plot(dist_vals,kernel_vals2,label="Kernel Values ($\sigma$="+str(sigma2)[:4]+")") 
 	ax.hist(actual_distances,bins=200,density=True,label="Distribution of Distances") 
 	ax.axvline(d_5,ls='--')
 	ax.axvline(d_95,ls='--')
-	ax.set_title("p-Gaussian (Dimension="+str(dim)+")")
+	ax.set_xlabel('Distance')
+	ax.set_ylabel('Kernel Values')
+	ax.set_title("p-Gaussian (Dimension d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g4_improvement_with_p_Gaussian_dim='+str(dim)+'.png')
 

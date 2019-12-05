@@ -16,8 +16,8 @@ for n in N:
 	rel_contrast = np.array([(max(np.linalg.norm(data,ord=k,axis=1))-min(np.linalg.norm(data,ord=k,axis=1)))/(min(np.linalg.norm(data,ord=k,axis=1))+0.0000000001) for k in k_values])
 	plt.plot(k_values,rel_contrast,linestyle='--', marker=markers[int(np.log10(n)-2)],label="N="+str(n)+" datapoints")
 
-plt.xlabel("k for D=L(k) norm") 
-plt.ylabel("Relative Contrast RC=|Dmax-Dmin|/Dmin") 
+plt.xlabel("k for D=$L_k$ norm") 
+plt.ylabel("Relative Contrast RC=$\dfrac{|Dmax-Dmin|}{Dmin}$") 
 plt.legend() 
 plt.grid() 
 fig.savefig('../Graphs/g2_rel_contrast(L(k))_vs_k'+'.png') 
