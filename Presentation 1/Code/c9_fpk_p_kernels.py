@@ -7,7 +7,7 @@ from kernel_implementations import *
 dimensions = [ 2, 10, 100 ]
 N = 10000 
 
-k = 0.6
+k = 0.8
 df1 = lambda x : get_distances(x,order=k)**k 
 
 for dim in dimensions:
@@ -28,7 +28,7 @@ for dim in dimensions:
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
 	ax.set_ylabel('Kernel Values')
-	ax.set_title("fractional^p p-Gaussian (Dimension d="+str(dim)+")")
+	ax.set_title("fractional(k)^k  p-Gaussian (Dimension d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g9_improvement_fp_Gaussian_dim='+str(dim)+'.png')
 
@@ -50,7 +50,7 @@ for dim in dimensions:
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
 	ax.set_ylabel('Kernel Values')
-	ax.set_title("fractional^p p-Rational Quadratic (Dimension d="+str(dim)+")")
+	ax.set_title("fractional(k)^k p-Rational Quadratic (Dimension d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g9_improved_fp_RationalQuadratic_dim='+str(dim)+'.png')
 
@@ -73,7 +73,7 @@ for dim in dimensions:
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
 	ax.set_ylabel('Kernel Values')
-	ax.set_title("fractional^p p-Inverse Multi-Quadratic (Dimension d="+str(dim)+")")
+	ax.set_title("fractional(k)^k  p-Inverse Multi-Quadratic (Dimension d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g9_improved_fp_InverseMultiQuadratic_dim='+str(dim)+'.png')
 
@@ -97,7 +97,7 @@ for dim in dimensions:
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
 	ax.set_ylabel('Kernel Values')
-	ax.set_title("fractional^p p-Cauchy (Dimension d="+str(dim)+")")
+	ax.set_title("fractional(k)^k  p-Cauchy (Dimension d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g9_improved_fp_Cauchy_dim='+str(dim)+'.png')
 
@@ -120,7 +120,7 @@ for dim in dimensions:
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
 	ax.set_ylabel('Kernel Values')
-	ax.set_title("fractional^p p-Matern Kernel (Dimension d="+str(dim)+")")
+	ax.set_title("fractional(k)^k  p-Matern Kernel (Dimension d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g9_improved_fp_Matern_dim='+str(dim)+'.png')
 
@@ -142,7 +142,7 @@ for dim in dimensions:
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
 	ax.set_ylabel('Kernel Values')
-	ax.set_title("fractional^p p-LaPlace Kernel (Dimension d="+str(dim)+")")
+	ax.set_title("fractional(k)^k  p-LaPlace Kernel (Dimension d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g9_improved_fp_LaPlace_dim='+str(dim)+'.png')
 

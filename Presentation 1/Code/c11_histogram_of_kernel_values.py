@@ -27,24 +27,28 @@ for dim in dimensions:
 	# kernel_vals1 = gaussian_kernel(dist_vals,sigma1) 
 	# kernel_vals2 = gaussian_kernel(dist_vals,sigma2) 
 
+	mean, stddev = np.mean(actual_distances), np.std(actual_distances,ddof=1)
+	a,b = gaussian_kernel(np.array([mean-3*stddev,mean+3*stddev]),sigma)
 
-	fig,ax=plt.subplots()
+
+
+	fig,ax=plt.subplots(figsize=(10,6))
 	# ax.plot(dist_vals,kernel_vals1,label="Kernel Values ($\sigma$="+str(sigma1)[:4]+")") 
 	# ax.plot(dist_vals,kernel_vals,label="Kernel Values ($\sigma$="+str(sigma)[:4]+")") 
 	# ax.plot(dist_vals,kernel_vals2,label="Kernel Values ($\sigma$="+str(sigma2)[:4]+")") 
 	ax.hist(kernel_vals,bins=100,density=True) 
-	# ax.axvline(df1(d_5),ls='--',color='r')
-	# ax.text(d_5,0.7,'$5 \\%$')
-	# ax.axvline(df1(d_95),ls='--',color='r')
-	# ax.text(d_95,0.7,'$95 \\%$')
+	ax.axvline(a,ls='--',color='r')
+	ax.text(a,13,'$K(\mu-3\sigma)=$'+str(a)[:4])
+	ax.axvline(b,ls='--',color='r')
+	ax.text(b,13,'$K(\mu+3\sigma)=$'+str(b)[:4])
 	ax.set_title("Histogram of Kernel Values (Dimension D="+str(dim)+")")
 	ax.set_xlabel('Kernel Values')
 	ax.set_ylabel('Frequency')
-	ax.set_ylim(0.0,1.0)
-	ax.set_xlim(0.0,1.0)
+	ax.set_ylim(0.0,15)
+	ax.set_xlim(0,1)
 	ax.legend() 
 	fig.savefig('../Graphs/g11_histogram_of_kernel_values_dim='+str(dim)+'.png')
 
-# plt.show()
+	# plt.show()
 
 
