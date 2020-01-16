@@ -12,7 +12,7 @@ df1 = lambda x : get_distances(x,order=k)
 
 for dim in dimensions:
 	sigma_data=1.0
-	actual_data = np.random.multivariate_normal( mean=np.zeros(dim), cov=sigma_data**2 * np.eye(dim), size = N ) 
+	actual_data = np.random.uniform(low=0.0,high=1.0,size=(N,dim))  
 	actual_distances = df1(actual_data) 
 	d_5, d_50, d_95 = np.percentile(actual_distances,5),np.percentile(actual_distances,50),np.percentile(actual_distances,95)
 	sigma = d_50/((-np.log(0.5))**0.5)
@@ -29,14 +29,14 @@ for dim in dimensions:
 	ax.axvline(d_5,ls='--')
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
-	ax.set_ylabel('Kernel Values')
+	# ax.set_ylabel('Kernel Values')
 	ax.set_title("$L_{"+str(k)[:4]+"}$Gaussian (d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g7_problem_L('+ str(k) +')_Gaussian_dim='+str(dim)+'.png')
 
 for dim in dimensions:
 	sigma_data=1.0
-	actual_data = np.random.multivariate_normal(mean=np.zeros(dim), cov=sigma_data**2 * np.eye(dim), size=N) 
+	actual_data = np.random.uniform(low=0.0,high=1.0,size=(N,dim))  
 	actual_distances = df1(actual_data) 
 	d_5, d_50, d_95 = np.percentile(actual_distances,5),np.percentile(actual_distances,50),np.percentile(actual_distances,95)
 
@@ -50,7 +50,7 @@ for dim in dimensions:
 	ax.axvline(d_5,ls='--')
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
-	ax.set_ylabel('Kernel Values')
+	# ax.set_ylabel('Kernel Values')
 	ax.set_title("$L_{"+str(k)[:4]+"}$Polynomial (d="+str(dim)+")") 
 	ax.legend() 
 	fig.savefig('../Graphs/g7_problem_L('+ str(k) +')_polynomial_dim='+str(dim)+'.png')
@@ -58,7 +58,7 @@ for dim in dimensions:
 
 for dim in dimensions:
 	sigma_data=1.0
-	actual_data = np.random.multivariate_normal(mean=np.zeros(dim), cov=sigma_data**2 * np.eye(dim), size=N) 
+	actual_data = np.random.uniform(low=0.0,high=1.0,size=(N,dim))  
 	actual_distances = df1(actual_data) 
 	d_5, d_50, d_95 = np.percentile(actual_distances,5),np.percentile(actual_distances,50),np.percentile(actual_distances,95)
 
@@ -72,7 +72,7 @@ for dim in dimensions:
 	ax.axvline(d_5,ls='--')
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
-	ax.set_ylabel('Kernel Values')
+	# ax.set_ylabel('Kernel Values')
 	ax.set_title("$L_{"+str(k)[:4]+"}$Rational Quadratic (d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g7_problem_L('+ str(k) +')_RationalQuadratic_dim='+str(dim)+'.png')
@@ -80,7 +80,7 @@ for dim in dimensions:
 
 for dim in dimensions:
 	sigma_data=1.0
-	actual_data = np.random.multivariate_normal(mean=np.zeros(dim), cov=sigma_data**2 * np.eye(dim), size=N) 
+	actual_data = np.random.uniform(low=0.0,high=1.0,size=(N,dim))  
 	actual_distances = df1(actual_data) 
 	d_5, d_50, d_95 = np.percentile(actual_distances,5),np.percentile(actual_distances,50),np.percentile(actual_distances,95)
 
@@ -94,7 +94,7 @@ for dim in dimensions:
 	ax.axvline(d_5,ls='--')
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
-	ax.set_ylabel('Kernel Values')
+	# ax.set_ylabel('Kernel Values')
 	ax.set_title("$L_{"+str(k)[:4]+"}$Inverse Multi-Quadratic (d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g7_problem_L('+ str(k) +')_InverseMultiQuadratic_dim='+str(dim)+'.png')
@@ -103,7 +103,7 @@ for dim in dimensions:
 
 for dim in dimensions:
 	sigma_data=1.0
-	actual_data = np.random.multivariate_normal(mean=np.zeros(dim), cov=sigma_data**2 * np.eye(dim), size=N) 
+	actual_data =np.random.uniform(low=0.0,high=1.0,size=(N,dim))  
 	actual_distances = df1(actual_data) 
 	d_5, d_50, d_95 = np.percentile(actual_distances,5),np.percentile(actual_distances,50),np.percentile(actual_distances,95)
 
@@ -117,7 +117,7 @@ for dim in dimensions:
 	ax.axvline(d_5,ls='--')
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
-	ax.set_ylabel('Kernel Values')
+	# ax.set_ylabel('Kernel Values')
 	ax.set_title("$L_{"+str(k)[:4]+"}$Cauchy (d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g7_problem_L('+ str(k) +')_Cauchy_dim='+str(dim)+'.png')
@@ -125,7 +125,7 @@ for dim in dimensions:
 
 for dim in dimensions:
 	sigma_data=1.0
-	actual_data = np.random.multivariate_normal(mean=np.zeros(dim), cov=sigma_data**2 * np.eye(dim), size=N) 
+	actual_data = np.random.uniform(low=0.0,high=1.0,size=(N,dim))  
 	actual_distances = df1(actual_data) 
 	d_5, d_50, d_95 = np.percentile(actual_distances,5),np.percentile(actual_distances,50),np.percentile(actual_distances,95)
 
@@ -139,14 +139,14 @@ for dim in dimensions:
 	ax.axvline(d_5,ls='--')
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
-	ax.set_ylabel('Kernel Values')
+	# ax.set_ylabel('Kernel Values')
 	ax.set_title("$L_{"+str(k)[:4]+"}$Matern Kernel (d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g7_problem_L('+ str(k) +')_Matern_dim='+str(dim)+'.png')
 
 for dim in dimensions:
 	sigma_data=1.0
-	actual_data = np.random.multivariate_normal(mean=np.zeros(dim), cov=sigma_data**2 * np.eye(dim), size=N) 
+	actual_data = np.random.uniform(low=0.0,high=1.0,size=(N,dim)) 
 	actual_distances = df1(actual_data) 
 	d_5, d_50, d_95 = np.percentile(actual_distances,5),np.percentile(actual_distances,50),np.percentile(actual_distances,95)
 
@@ -160,7 +160,7 @@ for dim in dimensions:
 	ax.axvline(d_5,ls='--')
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
-	ax.set_ylabel('Kernel Values')
+	# ax.set_ylabel('Kernel Values')
 	ax.set_title("$L_{"+str(k)[:4]+"}$LaPlace Kernel (d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g7_problem_L('+ str(k) +')_LaPlace_dim='+str(dim)+'.png')

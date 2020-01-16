@@ -12,7 +12,7 @@ df1 = lambda x : get_distances(x,order=k)**k
 
 for dim in dimensions:
 	sigma_data=1.0
-	actual_data = np.random.multivariate_normal(mean=np.zeros(dim), cov=sigma_data**2 * np.eye(dim), size=N) 
+	actual_data = np.random.uniform(low=0.0,high=1.0,size=(N,dim)) 
 	actual_distances = df1(actual_data) 
 	d_5, d_50, d_95 = np.percentile(actual_distances,5),np.percentile(actual_distances,50),np.percentile(actual_distances,95)
 	p = np.log(np.log(0.05)/np.log(0.95)) / np.log(d_95/d_5) 
@@ -27,14 +27,14 @@ for dim in dimensions:
 	ax.axvline(d_5,ls='--')
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
-	ax.set_ylabel('Kernel Values')
+	# ax.set_ylabel('Kernel Values')
 	ax.set_title("fractional(k)^k  p-Gaussian (Dimension d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g9_improvement_fp_Gaussian_dim='+str(dim)+'.png')
 
 for dim in dimensions:
 	sigma_data=1.0
-	actual_data = np.random.multivariate_normal(mean=np.zeros(dim), cov=sigma_data**2 * np.eye(dim), size=N) 
+	actual_data = np.random.uniform(low=0.0,high=1.0,size=(N,dim))
 	actual_distances = df1(actual_data) 
 	d_5, d_50, d_95 = np.percentile(actual_distances,5),np.percentile(actual_distances,50),np.percentile(actual_distances,95)
 	p = np.log(np.log(0.05)/np.log(0.95)) / np.log(d_95/d_5) 
@@ -49,7 +49,7 @@ for dim in dimensions:
 	ax.axvline(d_5,ls='--')
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
-	ax.set_ylabel('Kernel Values')
+	# ax.set_ylabel('Kernel Values')
 	ax.set_title("fractional(k)^k p-Rational Quadratic (Dimension d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g9_improved_fp_RationalQuadratic_dim='+str(dim)+'.png')
@@ -57,7 +57,7 @@ for dim in dimensions:
 
 for dim in dimensions:
 	sigma_data=1.0
-	actual_data = np.random.multivariate_normal(mean=np.zeros(dim), cov=sigma_data**2 * np.eye(dim), size=N) 
+	actual_data = np.random.uniform(low=0.0,high=1.0,size=(N,dim)) 
 	actual_distances = df1(actual_data) 
 	d_5, d_50, d_95 = np.percentile(actual_distances,5),np.percentile(actual_distances,50),np.percentile(actual_distances,95)
 	p = np.log(np.log(0.05)/np.log(0.95)) / np.log(d_95/d_5) 
@@ -72,7 +72,7 @@ for dim in dimensions:
 	ax.axvline(d_5,ls='--')
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
-	ax.set_ylabel('Kernel Values')
+	# ax.set_ylabel('Kernel Values')
 	ax.set_title("fractional(k)^k  p-Inverse Multi-Quadratic (Dimension d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g9_improved_fp_InverseMultiQuadratic_dim='+str(dim)+'.png')
@@ -81,7 +81,7 @@ for dim in dimensions:
 
 for dim in dimensions:
 	sigma_data=1.0
-	actual_data = np.random.multivariate_normal(mean=np.zeros(dim), cov=sigma_data**2 * np.eye(dim), size=N) 
+	actual_data = np.random.uniform(low=0.0,high=1.0,size=(N,dim)) 
 	actual_distances = df1(actual_data) 
 	d_5, d_50, d_95 = np.percentile(actual_distances,5),np.percentile(actual_distances,50),np.percentile(actual_distances,95)
 	p = np.log(np.log(0.05)/np.log(0.95)) / np.log(d_95/d_5) 
@@ -96,7 +96,7 @@ for dim in dimensions:
 	ax.axvline(d_5,ls='--')
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
-	ax.set_ylabel('Kernel Values')
+	# ax.set_ylabel('Kernel Values')
 	ax.set_title("fractional(k)^k  p-Cauchy (Dimension d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g9_improved_fp_Cauchy_dim='+str(dim)+'.png')
@@ -104,7 +104,7 @@ for dim in dimensions:
 
 for dim in dimensions:
 	sigma_data=1.0
-	actual_data = np.random.multivariate_normal(mean=np.zeros(dim), cov=sigma_data**2 * np.eye(dim), size=N) 
+	actual_data = np.random.uniform(low=0.0,high=1.0,size=(N,dim)) 
 	actual_distances = df1(actual_data) 
 	d_5, d_50, d_95 = np.percentile(actual_distances,5),np.percentile(actual_distances,50),np.percentile(actual_distances,95)
 	p = np.log(np.log(0.05)/np.log(0.95)) / np.log(d_95/d_5) 
@@ -119,14 +119,14 @@ for dim in dimensions:
 	ax.axvline(d_5,ls='--')
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
-	ax.set_ylabel('Kernel Values')
+	# ax.set_ylabel('Kernel Values')
 	ax.set_title("fractional(k)^k  p-Matern Kernel (Dimension d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g9_improved_fp_Matern_dim='+str(dim)+'.png')
 
 for dim in dimensions:
 	sigma_data=1.0
-	actual_data = np.random.multivariate_normal(mean=np.zeros(dim), cov=sigma_data**2 * np.eye(dim), size=N) 
+	actual_data = np.random.uniform(low=0.0,high=1.0,size=(N,dim)) 
 	actual_distances = df1(actual_data) 
 	d_5, d_50, d_95 = np.percentile(actual_distances,5),np.percentile(actual_distances,50),np.percentile(actual_distances,95)
 	p = np.log(np.log(0.05)/np.log(0.95)) / np.log(d_95/d_5) 
@@ -141,7 +141,7 @@ for dim in dimensions:
 	ax.axvline(d_5,ls='--')
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
-	ax.set_ylabel('Kernel Values')
+	# ax.set_ylabel('Kernel Values')
 	ax.set_title("fractional(k)^k  p-LaPlace Kernel (Dimension d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g9_improved_fp_LaPlace_dim='+str(dim)+'.png')

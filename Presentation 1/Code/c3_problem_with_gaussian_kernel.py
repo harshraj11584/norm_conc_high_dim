@@ -12,7 +12,7 @@ df1 = lambda x : get_distances(x,order=2.0)
 
 for dim in dimensions:
 	sigma_data=1.0
-	actual_data = np.random.multivariate_normal( mean=np.zeros(dim), cov=sigma_data**2 * np.eye(dim), size = N ) 
+	actual_data = np.random.uniform(low=0.0,high=1.0,size=(N,dim)) 
 	actual_distances = df1(actual_data) 
 
 	#estimating hyperparameter sigma using thumb rule in paper 
@@ -34,12 +34,13 @@ for dim in dimensions:
 	ax.plot(dist_vals,kernel_vals2,label="Kernel Values ($\sigma$="+str(sigma2)[:4]+")") 
 	ax.hist(actual_distances,bins=200,density=True,label="Distribution of Distances") 
 	ax.axvline(d_5,ls='--')
-	ax.text(d_5,0.9,'$5 \\%$')
+	ax.text(d_5,1.7,'$5 \\%$')
 	ax.axvline(d_95,ls='--',)
-	ax.text(d_95,0.9,'$95 \\%$')
+	ax.text(d_95,1.7,'$95 \\%$')
 	ax.set_title("Gaussian (Dimension d="+str(dim)+")")
 	ax.set_xlabel('Distance Values')
 	ax.set_ylabel('Kernel Values')
+	ax.set_ylim(0,2.0)
 	ax.legend() 
 	fig.savefig('../Graphs/g3_problem_with_Gaussian_dim='+str(dim)+'.png')
 

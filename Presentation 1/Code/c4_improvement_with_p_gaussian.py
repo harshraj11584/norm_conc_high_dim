@@ -12,7 +12,7 @@ df1 = lambda x : get_distances(x,order=2.0)
 
 for dim in dimensions:
 	sigma_data=1.0
-	actual_data = np.random.multivariate_normal(mean=np.zeros(dim), cov=sigma_data**2 * np.eye(dim), size=N) 
+	actual_data = np.random.uniform(low=0.0,high=1.0,size=(N,dim))  
 	actual_distances = df1(actual_data) 
 
 	#estimating hyperparameters p, sigma using thumb rule in paper 
@@ -37,7 +37,8 @@ for dim in dimensions:
 	ax.axvline(d_5,ls='--')
 	ax.axvline(d_95,ls='--')
 	ax.set_xlabel('Distance')
-	ax.set_ylabel('Kernel Values')
+	# ax.set_ylabel('Kernel Values')
+	ax.set_ylim(0,2.0)
 	ax.set_title("p-Gaussian (Dimension d="+str(dim)+")")
 	ax.legend() 
 	fig.savefig('../Graphs/g4_improvement_with_p_Gaussian_dim='+str(dim)+'.png')

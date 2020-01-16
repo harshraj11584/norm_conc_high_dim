@@ -12,7 +12,7 @@ df1 = lambda x : get_distances(x,order=2.0)
 
 for dim in dimensions:
 	sigma_data=1.0
-	actual_data = np.random.multivariate_normal( mean=np.zeros(dim), cov=sigma_data**2 * np.eye(dim), size = N ) 
+	actual_data = np.random.uniform(low=0.0, high=1.0, size=(N,dim)) 
 	actual_distances = df1(actual_data) 
 
 	#estimating hyperparameter sigma using thumb rule in paper 
@@ -38,7 +38,10 @@ for dim in dimensions:
 	# ax.plot(dist_vals,kernel_vals2,label="Kernel Values ($\sigma$="+str(sigma2)[:4]+")") 
 	ax.hist(kernel_vals,bins=100,density=True) 
 	ax.axvline(a,ls='--',color='r')
-	ax.text(a,13,'$K(\mu-3\sigma)=$'+str(a)[:4])
+	if dim==2:
+		ax.text(a-.20,13,'$K(\mu-3\sigma)=$'+str(a)[:4])
+	else:
+		ax.text(a,13,'$K(\mu-3\sigma)=$'+str(a)[:4])
 	ax.axvline(b,ls='--',color='r')
 	ax.text(b,13,'$K(\mu+3\sigma)=$'+str(b)[:4])
 	ax.set_title("Histogram of Kernel Values (Dimension D="+str(dim)+")")
