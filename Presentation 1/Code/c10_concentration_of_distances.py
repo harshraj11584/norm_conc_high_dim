@@ -12,7 +12,7 @@ df1 = lambda x : get_distances(x,order=2.0)
 
 for dim in dimensions:
 	sigma_data=1.0
-	actual_data = np.random.multivariate_normal( mean=np.zeros(dim), cov=sigma_data**2 * np.eye(dim), size = N ) 
+	actual_data = np.random.uniform(low=0.0, high=1.0, size=(N,dim)) 
 	actual_distances = df1(actual_data) 
 
 	#estimating hyperparameter sigma using thumb rule in paper 
@@ -34,14 +34,14 @@ for dim in dimensions:
 	# ax.plot(dist_vals,kernel_vals2,label="Kernel Values ($\sigma$="+str(sigma2)[:4]+")") 
 	ax.hist(actual_distances,bins=200,density=True,label="Distribution of Distances") 
 	ax.axvline(d_5,ls='--',color='r')
-	ax.text(d_5,0.7,'$5 \\%$')
+	ax.text(d_5,1.7,'$5 \\%$')
 	ax.axvline(d_95,ls='--',color='r')
-	ax.text(d_95,0.7,'$95 \\%$')
+	ax.text(d_95,1.7,'$95 \\%$')
 	ax.set_title("Concentration of Distances (Dimension D="+str(dim)+")")
 	ax.set_xlabel('Distance Values')
-	ax.set_ylabel('Probability')
-	ax.set_ylim(0.0,1.0)
-	ax.set_xlim(0.0,15.0)
+	ax.set_ylabel('Probability Density')
+	ax.set_ylim(0.0,2.0)
+	ax.set_xlim(0.0,8.0)
 	ax.legend() 
 	fig.savefig('../Graphs/g10_concentration_of_dist_dim='+str(dim)+'.png')
 
